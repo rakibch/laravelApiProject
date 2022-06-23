@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\FollowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ Route::group(['middleware' => 'api','prefix'=>'page'], function($router) {
 
 Route::group(['middleware' => 'api','prefix'=>'person'], function($router) {
     Route::post('attach-post',[ContentController::class, 'personContentAdd']);
+});
+
+Route::group(['middleware' => 'api','prefix'=>'follow'], function($router) {
+    Route::post('person/{personId}',[FollowController::class, 'followPerson']);
+    Route::post('person/{pageId}',[FollowController::class, 'followPage']);
 });
 
 

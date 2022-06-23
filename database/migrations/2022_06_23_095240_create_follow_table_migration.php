@@ -16,8 +16,8 @@ class CreateFollowTableMigration extends Migration
         Schema::create('follow', function (Blueprint $table) {
             $table->id();
             $table->integer('personId');
-            $table->integer('pageId');
-            $table->integer('followingPersonId');
+            $table->integer('pageId')->nullable();
+            $table->integer('followingPersonId')->nullable();
             $table->integer('followStatus');
             $table->timestamps();
         });
