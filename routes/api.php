@@ -35,7 +35,7 @@ Route::group(['middleware' => 'api','prefix'=>'page'], function($router) {
 });
 
 Route::group(['middleware' => 'api','prefix'=>'person'], function($router) {
-    Route::post('attach-post',[ContentController::class, 'pageContentAdd']);
+    Route::post('attach-post',[ContentController::class, 'personContentAdd']);
 });
 
 

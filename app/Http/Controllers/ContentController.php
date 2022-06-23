@@ -23,4 +23,18 @@ class ContentController extends Controller
             'content' => $content
         ], 201);
     }
+
+    public function personContentAdd(Request $request)
+    {
+        $content_writer_id = auth()->id();
+        $post_content = $request->post_content;
+        $content = Content::create([
+            'content_writer_id'=>$content_writer_id,
+            'post_content'=>$post_content
+        ]);
+        return response()->json([
+            'message' => 'Page Content created',
+            'content' => $content
+        ], 201);
+    }
 }

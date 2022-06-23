@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrateContentTable extends Migration
+class CreateTestTableMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CrateContentTable extends Migration
      */
     public function up()
     {
-        Schema::create('content', function (Blueprint $table) {
+        Schema::create('testtable', function (Blueprint $table) {
             $table->id();
             $table->string('page_id')->nullable();
             $table->integer('content_writer_id');
             $table->string('post_content');
             $table->timestamps();
         });
-       
     }
 
     /**
@@ -30,6 +29,6 @@ class CrateContentTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('test_table_migration');
     }
 }
