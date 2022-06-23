@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Follow;
 class FollowController extends Controller
 {
-    //
+    //follow a single person by a person
     public function followPerson($personId, Request $request)
     {
         $followingPersonId = $personId;
-        $personId = auth()->id();
-        $followStatus = 1;
+        $personId = auth()->id(); //get id of logged in user
+        $followStatus = 1; //here 1 = following; 0 = not following
 
         $follow = Follow::create([
             'personId'=>$personId,
@@ -25,12 +25,12 @@ class FollowController extends Controller
 
 
     }
-
+    //follow a page by a single person
     public function followPage($pageId)
     {
         $pageId = $pageId;
-        $personId = auth()->id();
-        $followStatus = 1;
+        $personId = auth()->id(); //get id of logged in user
+        $followStatus = 1; //here 1 = following; 0 = not following
 
         $follow = Follow::create([
             'personId'=>$personId,

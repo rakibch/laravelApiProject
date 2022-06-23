@@ -7,7 +7,7 @@ use App\Models\Content;
 
 class ContentController extends Controller
 {
-
+    //page content add by person
     public function pageContentAdd(Request $request,$pageId)
     {
         $pageId = $pageId;
@@ -23,7 +23,7 @@ class ContentController extends Controller
             'content' => $content
         ], 201);
     }
-
+    //post content add by single person
     public function personContentAdd(Request $request)
     {
         $content_writer_id = auth()->id();
@@ -33,7 +33,7 @@ class ContentController extends Controller
             'post_content'=>$post_content
         ]);
         return response()->json([
-            'message' => 'Page Content created',
+            'message' => 'Content created by person',
             'content' => $content
         ], 201);
     }

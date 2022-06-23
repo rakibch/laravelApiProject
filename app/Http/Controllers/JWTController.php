@@ -25,6 +25,7 @@ class JWTController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+    //registration of a user
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [

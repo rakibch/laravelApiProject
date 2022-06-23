@@ -8,15 +8,11 @@ use App\Models\Page;
 
 class PageController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
-
+    //page creation by a person
     public function create(Request $request)
     {
         $page_name = $request->page_name;
-        $owner_id = auth()->id();
+        $owner_id = auth()->id(); //get the id of logged in user as well as creator of page
         $page = Page::create([
             'page_name'=>$page_name,
             'owner_id'=>$owner_id,
