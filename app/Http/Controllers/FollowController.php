@@ -25,4 +25,22 @@ class FollowController extends Controller
 
 
     }
+
+    public function followPage($pageId)
+    {
+        $pageId = $pageId;
+        $personId = auth()->id();
+        $followStatus = 1;
+
+        $follow = Follow::create([
+            'personId'=>$personId,
+            'pageId'=>$pageId,
+            'followStatus'=>$followStatus,
+        ]);
+        return response()->json([
+            'message' => 'page following started successfully',
+            'followingStatus' => $follow
+        ], 201);
+
+    }
 }

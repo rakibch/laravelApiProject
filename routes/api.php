@@ -41,7 +41,7 @@ Route::group(['middleware' => 'api','prefix'=>'person'], function($router) {
 
 Route::group(['middleware' => 'api','prefix'=>'follow'], function($router) {
     Route::post('person/{personId}',[FollowController::class, 'followPerson']);
-    Route::post('person/{pageId}',[FollowController::class, 'followPage']);
+    Route::post('page/{pageId}',[FollowController::class, 'followPage']);
 });
 
 
