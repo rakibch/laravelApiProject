@@ -121,4 +121,5 @@ class JWTController extends Controller
             'user'=>$getUser
         ]);
     }
+
 }
