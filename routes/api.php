@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JWTController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,11 @@ Route::group(['middleware' => 'api','prefix'=>'auth'], function($router) {
 Route::group(['middleware' => 'api','prefix'=>'page'], function($router) {
 
     Route::post('/create',[PageController::class, 'create']);
+    Route::post('/{pageId}/attach-post',[ContentController::class, 'pageContentAdd']);
+});
 
+Route::group(['middleware' => 'api','prefix'=>'person'], function($router) {
+    Route::post('attach-post',[ContentController::class, 'pageContentAdd']);
 });
 
 
